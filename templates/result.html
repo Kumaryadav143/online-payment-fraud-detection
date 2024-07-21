@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Payments Fraud Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .navbar {
+            background-color: #03a9f4;
+            overflow: hidden;
+        }
+        .navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .main-content h1 {
+            color: #333;
+        }
+        .illustration {
+            float: right;
+            margin-left: 20px;
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#predict">Predict</a>
+        <a href="#home">Home</a>
+    </div>
+    <div class="main-content">
+        <h1>Online Payments Fraud Detection</h1>
+            </div>
+</body>
+    <center>
+        <a href="{{url_for('predict')}}"><button type="submit">
+
+        </button></a>
+
+        <p><h1>The predicted fraud for the online payment is{{prediction_text :}}</h1>
+    </center>
+    <a href="/">Go back to Home</a>
+
+</html>
