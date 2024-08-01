@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict - OPF</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='predict-style.css') }}"> 
+    <style>
+        @keyframes backgroundChange {
+    0% {
+        background-image: url('online1.jpg');
+    }
+    33% {
+        background-image: url('online2.jpg');
+    }
+    66% {
+        background-image: url('online3.jpg');
+    }
+    100% {
+        background-image: url('online.jpg');
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: blueviolet;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: backgroundChange 15s infinite;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px); /* Adjust width to account for padding and border */
+}
+
+button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(0, 252, 0);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: grey;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+#a1{
+    padding-top: 1200px;
+
+}
+
+    </style>
+</head>
+<body class="predict-page">
+    <div id="background"></div>
+    <div id="container">
+        <h1 id="head">Enter Transaction Details</h1>
+        <form id="predictionForm" action="{{ url_for('predict') }}" method="POST">
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="step">Step:</label>
+                    <input type="number" id="step" name="step" placeholder="Step: represents a unit of time where" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                
+            </div>
+            
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount"  placeholder="The amount of transaction" step="any" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="oldbalanceorg">OldbalanceOrg:</label>
+                    <input type="number" id="oldbalanceorg" name="oldbalanceorg" placeholder="Balance before the transaction" step="any" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="newbalanceorig">NewbalanceOrig:</label>
+                    <input type="number" id="newbalanceorig" name="newbalanceorig" placeholder="Balance after the transaction" step="any" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="oldbalancedest">OldbalanceDest:</label>
+                    <input type="number" id="oldbalancedest" name="oldbalancedest" placeholder="Initial balance of recipient" step="any" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-container">
+                    <label for="newbalancedest">NewbalanceDest:</label>
+                    <input type="number" id="newbalancedest" name="newbalancedest" placeholder="The new balance of the recipient" step="any" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">PREDICT</button>
+            </div>
+            <div id="buttons">
+                <a href="{{ url_for('home') }}"><button type="button">HOME</button></a>
+            </div>
+            
+        </form>
+    </div>
+    
+</body>
+</html>
